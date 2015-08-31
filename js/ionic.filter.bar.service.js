@@ -180,7 +180,16 @@
             // Otherwise filter by expression, supplied properties, or filterText.
             if (!filterText.length) {
               filteredItems = scope.items;
-            } else {
+            } else if(scope.expression && angular.isPromiseLike(scope.expression)){
+              scope.expression(filterText).then(function(datas){
+                filteredItems = datas;
+                $timeout(function() {
+                  scope.update(filteredItems, filterText);
+                  scope.scrollItemsTop();
+                });
+                return;
+              })
+            }else {
               if (scope.expression) {
                 filterExp = angular.bind(this, scope.expression, filterText);
               } else if (angular.isArray(scope.filterProperties)) {
