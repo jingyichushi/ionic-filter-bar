@@ -176,11 +176,15 @@
           scope.filterItems = function(filterText) {
             var filterExp, filteredItems;
 
+            function isPrmise(obj){
+              return obj && angular.isFunction(obj.then);
+            }
+
             // pass back original list if filterText is empty.
             // Otherwise filter by expression, supplied properties, or filterText.
             if (!filterText.length) {
               filteredItems = scope.items;
-            } else if(scope.expression && angular.isPromiseLike(scope.expression)){
+            } else if(scope.expression && isPrmise(scope.expression)){
               scope.expression(filterText).then(function(datas){
                 filteredItems = datas;
                 $timeout(function() {
