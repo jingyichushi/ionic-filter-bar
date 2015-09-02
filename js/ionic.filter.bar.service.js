@@ -44,7 +44,8 @@
           clear: $ionicFilterBarConfig.clear(),
           search: $ionicFilterBarConfig.search(),
           backdrop: $ionicFilterBarConfig.backdrop(),
-          placeholder: $ionicFilterBarConfig.placeholder()
+          placeholder: $ionicFilterBarConfig.placeholder(),
+          cancelText: $ionicFilterBarConfig.cancelText()
         };
 
         /**
@@ -90,7 +91,6 @@
             comparator: null,
             debounce: true,
             delay: 300,
-            cancelText: 'Cancel',
             cancelOnStateChange: true,
             container: $body
           }, opts);
