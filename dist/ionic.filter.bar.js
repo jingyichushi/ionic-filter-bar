@@ -32,7 +32,7 @@ angular.module('jett.ionic.filter.bar', ['ionic']);
                   '<input type="search" class="filter-bar-search" ng-model="filterText" placeholder="{{::config.placeholder}}"/>' +
                   '<button style="display:none;" class="filter-bar-clear button button-icon icon {{::config.clear}}"></button>' +
                 '</label>' +
-                '<button class="filter-bar-cancel button button-clear">{{::config.cancelText}}}</button>' +
+                '<button class="filter-bar-cancel button button-clear">{{::config.cancelText}}</button>' +
               '</div>' +
             '</div>';
         }
